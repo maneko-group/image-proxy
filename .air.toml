@@ -1,0 +1,16 @@
+#:schema https://json.schemastore.org/any.json
+
+root = "."
+tmp_dir = "tmp"
+env_files = [".env"]
+
+[build]
+cmd = "go build -o ./tmp/image-proxy ./cmd/image-proxy"
+entrypoint = ["./tmp/image-proxy"]
+include_ext = ["go"]
+exclude_dir = ["tmp"]
+send_interrupt = true
+kill_delay = "500ms"
+
+[misc]
+clean_on_exit = true

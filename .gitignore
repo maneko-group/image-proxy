@@ -1,0 +1,25 @@
+# Secrets
+.env*
+!.env.example
+
+# Binaries
+bin/
+tmp/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Diagnostics
+*.log
+report.[0-9]*
+
+# Editors
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# OS Files
+.DS_Store
+Thumbs.db
