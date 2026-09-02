@@ -1,0 +1,13 @@
+services:
+  rustfs:
+    image: docker.io/rustfs/rustfs:latest
+    container_name: rustfs
+    ports:
+      - 9000:9000
+      - 9001:9001
+    volumes:
+      - rustfs-data:/data
+    restart: unless-stopped
+
+volumes:
+  rustfs-data:
