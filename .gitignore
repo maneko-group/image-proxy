@@ -15,6 +15,10 @@ tmp/
 *.log
 report.[0-9]*
 
+# Agents
+.omo/
+.sisyphus/
+
 # Editors
 .vscode/*
 !.vscode/extensions.json
