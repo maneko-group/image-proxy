@@ -15,6 +15,7 @@ import (
 	"github.com/maneko-group/image-proxy/internal/pkg/logger"
 	"github.com/maneko-group/image-proxy/internal/pkg/proxy"
 	"github.com/maneko-group/image-proxy/internal/pkg/storage"
+	"github.com/maneko-group/image-proxy/internal/pkg/transform"
 )
 
 func main() {
@@ -49,9 +50,12 @@ func main() {
 		}
 	})
 
+	processor := transform.NewProcessor()
+	defer processor.Close()
 	handler := proxy.New(
 		storage.New(s3Client, cfg.S3Bucket),
 		logger.WithComponent(slog.Default(), "proxy"),
+		processor,
 	)
 
 	app := fiber.New()
